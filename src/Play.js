@@ -5,7 +5,7 @@ export default function Play({ setPick, pick }) {
     const setChoice = (e) => {
 
         setPick(e.target.dataset.id)
-        console.log(pick)
+        
     }
     return (
         <div className='play'>

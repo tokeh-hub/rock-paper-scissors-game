@@ -9,17 +9,14 @@ import {
 import Rules from "./Rules";
 import Header from "./Header";
 import Result from "./Result";
-const getScore = () => {
-  let scores = localStorage.getItem('number')
-  return JSON.parse(scores)
-}
+
 export default function App() {
   const [pick, setPick] = useState('')
   const [score, setScore] = useState(0)
   const [rules, setRules] = useState(false)
   const [house, setHouse] = useState('')
   
-
+   
 
   useEffect(() => {
     setScore(JSON.parse(window.localStorage.getItem('number')));
