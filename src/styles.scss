@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600&display=swap');
+@import '_mixins.scss';
+$scissors1: hsl(39, 89%, 49%);
+$scissors2: hsl(40, 84%, 53%);
+$paper1:hsl(230, 89%, 62%);
+$paper2: hsl(230, 89%, 65%);
+$rock1: hsl(349, 71%, 52%);
+$rock2: hsl(349, 70%, 56%);
+$score: hsl(229, 64%, 46%);
+$header-outline: hsl(217, 16%, 45%);
+$darkText:  hsl(229, 25%, 31%);
+$white: white;
+$paper-img: './img/icon-paper.svg';
+$rock-img:  './img/icon-rock.svg';
+$scissors-img:'./img/icon-scissors.svg';
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  
+}
+body{
+  color: $white;
+  background-image: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+.app{
+    min-height: 100vh;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  border: 3px solid $header-outline;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+.score{
+  display: grid;
+  grid-template-rows: 20px 60px;
+  width: 120px;
+  background-color: white;
+  text-align: center;
+  border-radius: 5px;
+  height: 100px;
+}
+.score p{
+  color: $score;
+  font-weight: 700px;
+  text-transform: uppercase;
+  padding-top: 5px;
+}
+.number{
+  color: $darkText;
+  font-size: 70px;
+}
+
+.logo{
+  height: 15vmin;
+  text-align: center;
+}
+.btn{
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+    background-color: transparent;
+    outline: $header-outline;
+    border-radius: 5px;
+    border: 3px solid $header-outline;
+    color: lighten($header-outline,30%);
+    text-transform: uppercase;
+    font-weight: 600px;
+
+    &:hover{
+      background-color: rgba(black, .8);
+      color: $darkText;
+      cursor: pointer;
+    }
+}
+.footer{
+  flex-shrink: 0;
+  flex-basis: 100px;
+}
+.play{
+  padding: 20px;
+  flex:1;
+  margin-top: 10px;
+  background-position-y: center;
+  background-position-x: center;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+     .triangle{
+           position: absolute;
+           align-self: center;
+           margin-top: 40px;
+     }
+.icons{
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+     
+    .icon{
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      position: absolute;
+      text-align: center;
+
+
+         &--scissors{
+          @include icon($scissors-img,$scissors1);
+          transform: translateX(5rem) translateY(-12rem);
+          
+          
+         &:hover{
+          transform: translateX(5rem) translateY(-12rem) scale(1.1) ;
+         }    
+        }
+
+         &--paper{
+          @include icon($paper-img,$paper1);
+          transform: translateX(-13rem) translateY(-12rem);
+        
+           &:hover{
+             transform: translateX(-13rem) translateY(-12rem) scale(1.1) ;
+           }
+         }
+
+         &--rock{
+          @include icon($rock-img,$rock1);
+          transform: translateX( -4rem) translateY(4rem);
+          
+          &:hover{
+            transform: translateX(-5rem) translateY(4rem) scale(1.1) ;
+          }
+         }
+    }
+
+  }
+}
+
+.result{
+  flex: 1;
+  display: flex;
+  width: 100%;
+  margin: 40px;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+
+      &--you{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+          h4{
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            font-weight: 500px;
+
+          }
+          .icon{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border-color: transparent;
+            border: 25px solid;
+            background-size: 50%;
+            
+             
+               &--paper{
+                 @include icon($paper-img,$paper1);
+                 &--winner{
+                          @include echo($paper1)
+                 }
+               }
+               &--scissors{
+                @include icon($scissors-img,$scissors1);
+                &--winner{
+                  @include echo($scissors1)
+         }
+              }
+              &--rock{
+                @include icon($rock-img,$rock1);
+                &--winner{
+                  @include echo($rock1)
+         }
+               
+
+              }
+          }
+      }
+      &--play{
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+       
+        h1{
+          text-transform: uppercase;
+          font-weight: 800px;
+          font-size: 3rem;
+          margin-bottom: 10px;
+        }
+        button{
+          text-transform: uppercase;
+          border-radius: 5px;
+          background-color: white;
+          padding: 10px;
+          font-size: .8rem;
+          outline: none;
+          border: none;
+          font-weight: 400px;
+          width: 110px;
+
+          &:hover{
+            color:red
+          }
+        }
+      }
+      &--house{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 10px;
+        
+          h4{
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            font-weight: 500px;
+          }
+          p{
+            text-align: center;
+          }
+           .time{
+         
+            font-size: 8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: rgba($color:#000000, $alpha:.3);
+          }
+          .icon{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border-color: transparent;
+            border: 25px solid;
+            background-size: 50%;
+               &--paper{
+                 @include icon($paper-img,$paper1);
+                 &--winner{
+                  @include echo($paper1)
+         }
+               }
+               &--scissors{
+                @include icon($scissors-img,$scissors1);
+                &--winner{
+                  @include echo($scissors1)
+         }
+              }
+              &--rock{
+                @include icon($rock-img,$rock1);
+                &--winner{
+                  @include echo($rock1)
+         }
+              }
+          }
+      } 
+
+}
+
+.overlay{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rules{
+     width: 400px;
+     height: 350px;
+     background: white;
+     border-radius: 5px;
+     position: relative;
+     display: flex;
+     flex-direction: column;
+     padding: 20px;
+     color: $header-outline;
+}
+.rule-header{
+  display: flex;
+  justify-content: space-between;
+}
+.rule-header .cancel{
+  
+  background: transparent;
+  outline: none;
+  border: none;
+  font-size: 35px;
+  color: $header-outline !important;
+}
+.rules img{
+  position: absolute;
+  top: 75px;
+  align-self: center;
+}
+.rule-header h3{
+  font-weight: 800px !important;
+  font-size: 25px;
+}
+
+@media screen and (min-width:800px) {
+  .result{
+    &--play{
+      margin-top: 0;
+    }
+  }
+  .footer{
+    position: absolute;
+    right: 3rem;
+    bottom: 30px;
+  }
+}
