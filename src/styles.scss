@@ -172,6 +172,7 @@ body{
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
+  margin-top: -100px;
 
       &--you{
         display: flex;
@@ -179,11 +180,13 @@ body{
         justify-content: center;
         align-items: center;
         
+        
           h4{
             text-transform: uppercase;
-            margin-bottom: 2rem;
-            font-size: 1.3rem;
+            margin-bottom: 10rem;
+            font-size: 3rem;
             font-weight: 500px;
+            letter-spacing: 3px;
 
           }
           .icon{
@@ -220,9 +223,11 @@ body{
       &--play{
         display: flex;
         flex-direction: column;
-        padding: 20px;
+        // padding: 20px;
         justify-content: center;
         align-items: center;
+        margin-right: -50px;
+        margin-top: 200px;
        
         h1{
           text-transform: uppercase;
@@ -235,11 +240,12 @@ body{
           border-radius: 5px;
           background-color: white;
           padding: 10px;
-          font-size: .8rem;
+          font-size: 2rem;
           outline: none;
           border: none;
           font-weight: 400px;
-          width: 110px;
+          width: fit-content;
+          height: 100px;
 
           &:hover{
             color:red
@@ -251,13 +257,14 @@ body{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-left: 10px;
+        margin-left: 20px;
         
           h4{
             text-transform: uppercase;
-            margin-bottom: 2rem;
-            font-size: 1.3rem;
+            margin-bottom: 10rem;
+            font-size: 3rem;
             font-weight: 500px;
+            // letter-spacing: 3px;
           }
           p{
             text-align: center;
