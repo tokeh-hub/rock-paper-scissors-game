@@ -29,7 +29,7 @@ export default function Result({ pick, house, setHouse, setScore }) {
 
     const checkResult = () => {
         setCheck(true)
-        if (pick === 'scissors' && house === 'paper' || pick === 'rock' && house === 'scissors' || pick === 'paper' && house === 'rock') { setPlayer('win'); setScore(score => score + 1) }
+        if (pick === 'scissors' && house === 'paper' || pick === 'rock' && house === 'scissors' || pick === 'paper' && house === 'rock') { setPlayer('win'); setScore(score => score + 1)}
         if (pick === 'paper' && house === 'scissors' || pick === 'scissors' && house === 'rock' || pick === 'rock' && house === 'paper') { setPlayer('lose') }
         if (pick === 'scissors' && house === 'scissors' || pick === 'rock' && house === 'rock' || pick === 'paper' && house === 'paper') { setPlayer('draw') }
     }

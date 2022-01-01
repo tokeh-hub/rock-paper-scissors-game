@@ -15,15 +15,18 @@ const getScore = () => {
 }
 export default function App() {
   const [pick, setPick] = useState('')
-  const [score, setScore] = useState(getScore())
+  const [score, setScore] = useState(0)
   const [rules, setRules] = useState(false)
   const [house, setHouse] = useState('')
+  
 
 
   useEffect(() => {
-    localStorage.setItem('number', JSON.stringify(score));
-    setScore(score)
-  }, [score])
+    setScore(JSON.parse(window.localStorage.getItem('number')));
+  }, []);
+  useEffect(() => {
+    window.localStorage.setItem('number', score);
+  }, [score]);
 
   return (
     <div className="app">
